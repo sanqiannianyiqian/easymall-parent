@@ -75,7 +75,7 @@
         <dependency> <!-- 测试用到的lucene核心包 -->
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
-            <version>6.0.0</version>
+            <version>7.1.0</version>
         </dependency>
         <dependency>
             <groupId>cn.tedu.ik</groupId>
