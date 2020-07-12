@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.seckill.dao.SeckillDao">
+    <!--查询list-->
+    <select id="selectAll" resultType="Seckill">
+        select * from seckill;
+    </select>
+    <!--查询单个-->
+    <select id="selectOne" resultType="Seckill">
+        select * from seckill where seckill_id=#{seckillId}
+    </select>
+    <!--减库存-->
+    <update id="decrSeckillNum" >
+        update seckill set number=number-1
+        where seckill_id=#{seckillId}
+        and number &gt; 0
+        and now() &gt;start_time
+        and now() &lt;end_time;
+    </update>
+    <!--success对象入库操作-->
+    <insert id="insertSuccess" >
+        insert into success (seckill_id,user_phone,state,create_time)
+        values (#{seckillId},#{userPhone},#{state},#{createTime});
+    </insert>
+    <select id="selectSuccess" resultType="Success">
+        select * from success where seckill_id=#{seckillId}
+    </select>
+</mapper>

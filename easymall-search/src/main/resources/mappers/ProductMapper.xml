@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.search.dao.CreatIndexDao">
+    <!--分页查询 limit-->
+    <select id="selectProducts" resultType="Product">
+        select * from t_product;
+    </select>
+
+</mapper>
